@@ -2,29 +2,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UserState {
-  name: string;
-  isAuthenticated: boolean;
+  
 }
 
 const initialState: UserState = {
-  name: "",
-  isAuthenticated: false,
+
 };
 
-const userSlice = createSlice({
+const exerciseSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    setUser: (state, action: PayloadAction<string>) => {
-      state.name = action.payload;
-      state.isAuthenticated = true;
-    },
-    logout: (state) => {
-      state.name = "";
-      state.isAuthenticated = false;
-    },
-  },
+  reducers: {},
 });
 
-export const { setUser, logout } = userSlice.actions;
-export default userSlice.reducer;
+export default exerciseSlice.reducer;

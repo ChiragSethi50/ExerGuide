@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
-import { exerciseOptions, listData } from '../../../shared/utils/list-data';
+import { exerciseOptions, listData } from '../../../config/list-data';
 import HorizontalScrollbar from './horizontal-scrollbar';
 
 interface Exercise {

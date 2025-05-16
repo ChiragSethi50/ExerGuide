@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 
-import { exerciseOptions, listData, youtubeOptions } from '@/shared/utils/list-data';
+import { exerciseOptions, listData, youtubeOptions } from '@/config/list-data';
 import Detail from './components/detail';
 import ExerciseVideos from './components/exercise-videos';
 import SimilarExercises from './components/similiar-exercises';
 import { useParams } from 'next/navigation';
 
-interface ExerciseDetail {
+interface ExerciseDetailType {
   id:string;
   bodyPart: string;
   gifUrl: string;
@@ -25,10 +25,10 @@ interface VideoItem {
   };
 }
 const ExerciseDetail = () => {
-  const [exerciseDetail, setExerciseDetail] = useState<ExerciseDetail | null>(null);
+  const [exerciseDetail, setExerciseDetail] = useState<ExerciseDetailType | null | void>(null);
   const [exerciseVideos, setExerciseVideos] = useState<VideoItem[]>([]);
-  const [targetMuscleExercises, setTargetMuscleExercises] = useState<ExerciseDetail[]>([]);
-  const [equipmentExercises, setEquipmentExercises] = useState<ExerciseDetail[]>([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState<ExerciseDetailType[]>([]);
+  const [equipmentExercises, setEquipmentExercises] = useState<ExerciseDetailType[]>([]);
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {

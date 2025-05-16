@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { Box, Stack, Typography } from '@mui/material';
 
-import { exerciseOptions, listData } from '../../../shared/utils/list-data';
+import { exerciseOptions, listData } from '../../../config/list-data';
 import ExerciseCard from '../../../shared/ui/exercise-card';
 import Loader from '@/shared/ui/loader';
 
@@ -53,6 +53,7 @@ export const Exercises: React.FC<ExercisesProps> = ({ exercises, setExercises, b
     window.scrollTo({ top: 1800, behavior: 'smooth' });
   };
 
+  if (currentExercises.length == 0) return "No Data Found";
   if (!currentExercises.length) return <Loader />;
 
   return (

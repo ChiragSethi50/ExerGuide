@@ -1,8 +1,8 @@
-
 import type { Metadata } from "next";
-import StoreProvider from "@/shared/providers/store-provider";
+import StoreProvider from "@/store/store-provider";
 import { Footer, Header } from "@/shared/ui/layout";
 import "./globals.scss";
+import ThemeProviderWrapper from "@/shared/theme/theme-provider";
 
 export const metadata: Metadata = {
   title: "Exer Guide",
@@ -12,19 +12,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <StoreProvider>
-          <Header />
-          {children}
-          <Footer />
-        </StoreProvider>
+        <ThemeProviderWrapper>
+          <StoreProvider>
+            <Header />
+            {children}
+            <Footer />
+          </StoreProvider>
+        </ThemeProviderWrapper>
       </body>
     </html>
   );
